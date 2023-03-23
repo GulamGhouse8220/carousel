@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online</title>
+    <link rel="stylesheet" href="./online.css">
+</head>
+
+<body>
+    <div class="carousel">
+        <div class="carousel__item">
+            <div class="carousel-item active">
+                <img src="https://image.shutterstock.com/image-photo/full-hd-image-ladybird-on-260nw-1952398060.jpg"
+                    class="d-block w-10" alt="image">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="top">Thangadurai</h1>
+                    <p class="top1">
+                        ZealZoft<br>
+                        No.1<br>
+                        Python Developer
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel__item">Content #2</div>
+        <div class="carousel__item">Content #3</div>
+    </div>
+
+</body>
+<script type="text/javaScript">
+
+
+    document.querySelectorAll(".carousel").forEach((carousel) => {
+      const items = carousel.querySelectorAll(".carousel__item");
+      const buttonsHtml = Array.from(items, () => {
+        return `<span class="carousel__button"></span>`;
+      });
+    
+      carousel.insertAdjacentHTML(
+        "beforeend",
+        `
+            <div class="carousel__nav">
+                ${buttonsHtml.join("")}
+            </div>
+        `
+      );
+    
+      const buttons = carousel.querySelectorAll(".carousel__button");
+    
+      buttons.forEach((button, i) => {
+        button.addEventListener("click", () => {
+          // un-select all the items
+          items.forEach((item) =>
+            item.classList.remove("carousel__item--selected")
+          );
+          buttons.forEach((button) =>
+            button.classList.remove("carousel__button--selected")
+          );
+    
+          items[i].classList.add("carousel__item--selected");
+          button.classList.add("carousel__button--selected");
+        });
+      });
+    
+      // Select the first item on page load
+      items[0].classList.add("carousel__item--selected");
+      buttons[0].classList.add("carousel__button--selected");
+    });
+    
+ </script>
+
+</html>

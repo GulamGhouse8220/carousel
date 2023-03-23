@@ -1,0 +1,40 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+.gulam {
+    margin-top: 50px;
+    max-width: auto;
+
+}
+
+
+.top {
+    margin-left: 100px;
+    margin-top: 130px;
+}
+
+.top1 {
+    margin-left: 70px;
+    margin-bottom: 80px;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
